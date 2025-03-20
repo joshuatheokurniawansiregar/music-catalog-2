@@ -1,0 +1,10 @@
+service:
+  port: ":8083"
+  secretJWT: "fastcampus"
+
+#postgresql://<user_name>:<password>@<host>:<port>/<database_name>
+
+# postgresql data source name: "postgresql://<user_name>:<password>@<host>:<port>/<database_name>"
+# mysql data source name: "<user>:<password>@tcp(<host>:<port>)/<database>?parseTime=true"
+database:
+  dataSourceName: "postgresql://admin:root@localhost:5432/music-catalog-db=2"

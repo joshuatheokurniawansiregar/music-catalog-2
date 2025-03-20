@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    container_name: music-catalog-2-container
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=music-catalog-db-2
+    volumes:
+      - /Users/joshu/go/Fastcampus/db:/var/lib/postgresql/data
