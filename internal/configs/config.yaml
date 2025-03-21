@@ -7,4 +7,4 @@ service:
 # postgresql data source name: "postgresql://<user_name>:<password>@<host>:<port>/<database_name>"
 # mysql data source name: "<user>:<password>@tcp(<host>:<port>)/<database>?parseTime=true"
 database:
-  dataSourceName: "postgresql://admin:root@localhost:5432/music-catalog-db=2"
+  dataSourceName: "postgresql://admin:root@localhost:5432/music-catalog-db-2"
