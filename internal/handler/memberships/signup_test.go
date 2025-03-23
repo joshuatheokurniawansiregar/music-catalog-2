@@ -31,7 +31,7 @@ func TestHandler_Signup(t *testing.T) {
 			name: "success",
 			mockFn: func(){
 				membershipsServiceInterface.EXPECT().Signup(memberships.SignUpRequest{
-					Email: "test@gmail.com",
+					Email: "testaa@gmail.com",
 					Username: "testusername",
 					Password: "testpassword",
 				}).Return(nil)
@@ -43,7 +43,7 @@ func TestHandler_Signup(t *testing.T) {
 			name: "failed",
 			mockFn: func(){
 				membershipsServiceInterface.EXPECT().Signup(memberships.SignUpRequest{
-					Email: "test@gmail.com",
+					Email: "testaa@gmail.com",
 					Username: "testusername",
 					Password: "testpassword",
 				}).Return(errors.New("email or username exists"))
@@ -64,7 +64,7 @@ func TestHandler_Signup(t *testing.T) {
 			responseWriter := httptest.NewRecorder()
 			var endpoint string= `/api/v1/memberships/sign_up`
 			model:= memberships.SignUpRequest{
-				Email: "test@gmail.com",
+				Email: "testaa@gmail.com",
 				Username: "testusername",
 				Password: "testpassword",
 			}

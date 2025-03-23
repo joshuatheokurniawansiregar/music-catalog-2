@@ -10,4 +10,4 @@ services:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=music-catalog-db-2
     volumes:
-      - /Users/joshu/go/Fastcampus/db:/var/lib/postgresql/data
+      - /Users/joshu/go/Fastcampus/fastcampus_postgres/db

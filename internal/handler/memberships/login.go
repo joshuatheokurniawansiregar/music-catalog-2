@@ -8,24 +8,24 @@ import (
 	"github.com/joshuatheokurniawansiregar/music_catalog_2/internal/models/memberships"
 )
 
-func (h *Handler) Signup(context *gin.Context) {
-	var request memberships.SignUpRequest
-	err:= context.ShouldBindJSON(&request)
-	if err != nil{
+func (h *Handler) Login(context *gin.Context){
+	var requestLogin memberships.LoginRequest
+	if err := context.ShouldBindJSON(&requestLogin); err != nil{
 		context.JSON(http.StatusBadRequest, gin.H{
-			"errror":err.Error(),
+			"error": err.Error(),
 		})
 		return
 	}
 
-	if(request == memberships.SignUpRequest{}){
+	if(requestLogin == memberships.LoginRequest{}){
 		context.JSON(http.StatusBadRequest, gin.H{
 			"errror":errors.New("body request cannot be null or equal {}").Error(),
 		})
 		return
 	}
 
-	err = h.serviceInterface.Signup(request)
+	accessToken, err := h.serviceInterface.Login(&requestLogin)
+
 	if err != nil{
 		context.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
@@ -33,5 +33,7 @@ func (h *Handler) Signup(context *gin.Context) {
 		return
 	}
 
-	context.Status(http.StatusCreated)
+	context.JSON(http.StatusAccepted, memberships.LoginResponse{
+		AccessToken: accessToken,
+	})
 }
