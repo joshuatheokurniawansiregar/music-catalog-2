@@ -19,7 +19,7 @@ func (s *Service) Signup(request memberships.SignUpRequest) error {
 
 	if existingUser != nil{
 		golog.Printf("error: error when create user. email %s and username %s exist", request.Email, request.Username)
-		return errors.New("emain and username exist")
+		return errors.New("email and username exist")
 	}
 
 	password, err := bcrypt.GenerateFromPassword([]byte(request.Password), bcrypt.DefaultCost)

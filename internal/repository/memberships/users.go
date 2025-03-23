@@ -1,6 +1,8 @@
 package memberships
 
 import (
+	"fmt"
+
 	"github.com/joshuatheokurniawansiregar/music_catalog_2/internal/models/memberships"
 	"gorm.io/gorm"
 )
@@ -15,6 +17,7 @@ func(r *Repository) GetUser(email string, username string, id uint)(*memberships
 	var user memberships.User = memberships.User{}
 	var response *gorm.DB = r.db.Where("email = ?", email).Or("username = ?", username).Or("id = ?", id).First(&user)
 	if response.Error != nil{
+		fmt.Println(response.Error.Error())
 		return nil, response.Error 
 	}
 
